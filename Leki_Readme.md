@@ -34,5 +34,5 @@
 >
 > Write something Important here.
 
-![show](C:\Users\59376\Desktop\typora-haru-theme\design\Leki_Readme.png)
+![show](./design/Leki_Readme.png)
 
