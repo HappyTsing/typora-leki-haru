@@ -67,12 +67,7 @@ html {
   caret-color: var(--main-color);
 }
 
-#write h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+#write :is(h1, h2, h3, h4, h5, h6) {
   color: var(--font-color);
   font-family: var(--title-font);
   font-weight: 800;
@@ -166,138 +161,16 @@ h6 {
     -webkit-transition: all 0.3s linear;
 } */
 
-#write blockquote {
-  padding: 10px 10px;
-  font-size: var(--quote-title-font-size);
-  color: var(--blockquote-color);
-  border-left: 6px solid var(--main-color);
-  background: var(--light-color);
-  border-radius: 0.5em;
-  font-family: var(--blockquote-font);
-  line-height: 35px;
-}
-
-#write blockquote h1 {
-  font-weight: 200;
-  font-size: var(--quote-tag-font-size);
-  border-bottom: none;
-  font-family: var(--base-font);
-  line-height: 35px;
-}
-
-#write blockquote h1::before {
-  content: "Tips";
-  background-color: var(--main-color);
-  font-family: var(--title-font);
-  color: white;
-  font-size: var(--quote-tag-font-size);
-  border-radius: 0.3em;
-  padding: 3px 7px;
-  margin-right: 15px;
-}
-
-#write blockquote h2 {
-  font-weight: 200;
-  font-size: var(--quote-tag-font-size);
-  font-family: var(--base-font);
-  line-height: 35px;
-}
-
-#write blockquote h2::before {
-  content: "Question";
-  background-color: #64dd17;
-  font-family: var(--title-font);
-  color: white;
-  font-size: var(--quote-tag-font-size);
-  border-radius: 0.3em;
-  padding: 3px 7px;
-  margin-right: 15px;
-}
-
-#write blockquote h3 {
-  font-weight: 200;
-  font-size: var(--quote-tag-font-size);
-  font-family: var(--base-font);
-  line-height: 35px;
-  color: var(--light-color);
-}
-
-#write blockquote h3::before {
-  content: "References";
-  background-color: var(--shadow-color);
-
-  font-family: var(--title-font);
-  color: white;
-  font-size: var(--quote-tag-font-size);
-  border-radius: 0.3em;
-  padding: 3px 7px;
-  margin-right: 15px;
-  float: none;
-  position: relative;
-  top: 0;
-  left: 0;
-  vertical-align: baseline;
-  border-width: 0;
-}
-
-#write blockquote h4 {
-  font-weight: 200;
-  font-size: var(--quote-tag-font-size);
-  font-family: var(--base-font);
-  line-height: 35px;
-}
-
-#write blockquote h4::before {
-  content: "Warning";
-  background-color: #ff9100;
-
-  font-family: var(--title-font);
-  color: white;
-  font-size: var(--quote-tag-font-size);
-  border-radius: 0.3em;
-  padding: 3px 7px;
-  margin-right: 15px;
-  float: none;
-  position: relative;
-  top: 0;
-  left: 0;
-  vertical-align: baseline;
-  border-width: 0;
-}
-
-#write blockquote h5 {
-  font-weight: 200;
-  font-size: var(--quote-tag-font-size);
-  font-family: var(--base-font);
-  line-height: 35px;
-}
-
-#write blockquote h5::before {
-  content: "Important";
-  background-color: rgb(224, 66, 66);
-  font-family: var(--title-font);
-  color: white;
-  font-size: var(--quote-tag-font-size);
-  border-radius: 0.3em;
-  padding: 3px 7px;
-  margin-right: 15px;
-  float: none;
-  position: relative;
-  top: 0;
-  left: 0;
-  vertical-align: baseline;
-  border-width: 0;
-}
-
 /* code block */
 #write pre.md-fences {
   padding: 1rem 0.5rem 1rem;
   display: block;
   -webkit-overflow-scrolling: touch;
   /* box-shadow: 0 0 6px 2px rgba(151, 151, 151, 0.9); */
-  /* border-top: rgb(51, 51, 51) solid 35px; */
-  border-top: rgb(244, 244, 244) solid 35px;
+  border-top: rgb(51, 51, 51) solid 35px;
   background-color: rgb(244, 244, 244);
+  /* border-top: rgb(244, 244, 244) solid 35px;
+  background-color: rgb(51, 51, 51); */
 }
 
 pre.md-fences::before {
@@ -327,9 +200,10 @@ code {
   color: #666363;
   white-space: pre-wrap;
   background: var(--light-color);
-  border-radius: 8px;
+  border-radius: 7px;
 }
 
+/* blockquote */
 #write blockquote code {
   margin: 0 2px;
   padding: 4px 6px;
@@ -338,7 +212,187 @@ code {
   background: var(--main-color);
   border-radius: 8px;
 }
+#write blockquote {
+  padding: 10px 10px;
+  font-size: var(--quote-title-font-size);
+  color: var(--blockquote-color);
+  border-left: 6px solid var(--main-color);
+  background: var(--light-color);
+  border-radius: 0.5em;
+  font-family: var(--blockquote-font);
+  line-height: 35px;
+}
+/* hidden */
+#write blockquote :is(h1, h2, h3, h4, h5, h6) {
+  color: var(--light-color);
+}
 
+#write blockquote :is(h1, h2, h3, h4, h5, h6) > span::selection {
+  background: #f8f2fffd;
+  color: #f8f2ff;
+}
+#write blockquote :is(h1, h2, h3, h4, h5, h6) > span::-moz-selection {
+  background: #f8f2fffd;
+  color: #f8f2ff;
+}
+#write blockquote :is(h1, h2, h3, h4, h5, h6) > span::-webkit-selection {
+  background: #f8f2fffd;
+  color: #f8f2ff;
+}
+
+#write blockquote h1 {
+  font-weight: 200;
+  font-size: var(--quote-tag-font-size);
+  border-bottom: none;
+  font-family: var(--base-font);
+  line-height: 35px;
+  color: var(--light-color);
+}
+
+#write blockquote h1::before {
+  content: "Tips";
+  background-color: var(--main-color);
+  font-family: var(--title-font);
+  color: white;
+  font-size: var(--quote-tag-font-size);
+  border-radius: 0.3em;
+  padding: 3px 7px;
+  margin-right: 15px;
+}
+
+#write blockquote h1 ~ p code {
+  background-color: var(--main-color);
+}
+
+#write blockquote h2 {
+  font-weight: 200;
+  font-size: var(--quote-tag-font-size);
+  font-family: var(--base-font);
+  line-height: 35px;
+}
+
+#write blockquote h2::before {
+  content: "Question";
+  background-color: #64dd17;
+  font-family: var(--title-font);
+  color: white;
+  font-size: var(--quote-tag-font-size);
+  border-radius: 0.3em;
+  padding: 3px 7px;
+  margin-right: 15px;
+}
+
+#write blockquote h2 ~ p code {
+  background-color: #64dd17;
+}
+
+#write blockquote h3 {
+  font-weight: 200;
+  font-size: var(--quote-tag-font-size);
+  font-family: var(--base-font);
+  line-height: 35px;
+}
+
+#write blockquote h3::before {
+  content: "References";
+  background-color: var(--shadow-color);
+
+  font-family: var(--title-font);
+  color: white;
+  font-size: var(--quote-tag-font-size);
+  border-radius: 0.3em;
+  padding: 3px 7px;
+  margin-right: 15px;
+  float: none;
+  position: relative;
+  top: 0;
+  left: 0;
+  vertical-align: baseline;
+  border-width: 0;
+}
+#write blockquote h3 ~ p code {
+  background-color: var(--shadow-color);
+}
+#write blockquote h4 {
+  font-weight: 200;
+  font-size: var(--quote-tag-font-size);
+  font-family: var(--base-font);
+  line-height: 35px;
+}
+
+#write blockquote h4::before {
+  content: "Example";
+  background-color: #e3229d;
+
+  font-family: var(--title-font);
+  color: white;
+  font-size: var(--quote-tag-font-size);
+  border-radius: 0.3em;
+  padding: 3px 7px;
+  margin-right: 15px;
+  float: none;
+  position: relative;
+  top: 0;
+  left: 0;
+  vertical-align: baseline;
+  border-width: 0;
+}
+#write blockquote h4 ~ p code {
+  background-color: #e3229d;
+}
+#write blockquote h5 {
+  font-weight: 200;
+  font-size: var(--quote-tag-font-size);
+  font-family: var(--base-font);
+  line-height: 35px;
+}
+
+#write blockquote h5::before {
+  content: "Warning";
+  background-color: #ff9100;
+  font-family: var(--title-font);
+  color: white;
+  font-size: var(--quote-tag-font-size);
+  border-radius: 0.3em;
+  padding: 3px 7px;
+  margin-right: 15px;
+  float: none;
+  position: relative;
+  top: 0;
+  left: 0;
+  vertical-align: baseline;
+  border-width: 0;
+}
+#write blockquote h5 ~ p code {
+  background-color: #ff9100;
+}
+
+#write blockquote h6 {
+  font-weight: 200;
+  font-size: var(--quote-tag-font-size);
+  font-family: var(--base-font);
+  line-height: 35px;
+}
+
+#write blockquote h6::before {
+  content: "Important";
+  background-color: #e04242;
+  font-family: var(--title-font);
+  color: white;
+  font-size: var(--quote-tag-font-size);
+  border-radius: 0.3em;
+  padding: 3px 7px;
+  margin-right: 15px;
+  float: none;
+  position: relative;
+  top: 0;
+  left: 0;
+  vertical-align: baseline;
+  border-width: 0;
+}
+#write blockquote h6 ~ p code {
+  background-color: #e04242;
+}
 kbd,
 samp,
 tt,
@@ -570,18 +624,18 @@ span::-webkit-selection {
 }
 
 h1::selection {
-  background: var(--main-color);
-  color: white;
+  background-color: #f8f2ff;
+  color: black !important;
 }
 
 h1::-moz-selection {
-  background: var(--main-color);
-  color: white;
+  background-color: #f8f2ff;
+  color: black !important;
 }
 
 h1::-webkit-selection {
-  background: var(--main-color);
-  color: white;
+  background-color: #f8f2ff;
+  color: black !important;
 }
 
 h2::selection {
