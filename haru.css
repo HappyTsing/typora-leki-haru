@@ -260,7 +260,7 @@ code {
   margin-right: 15px;
 }
 
-#write blockquote h1 ~ p code {
+#write blockquote h1 ~ :is(p, ul, blockquote) code {
   background-color: var(--main-color);
 }
 
@@ -282,7 +282,7 @@ code {
   margin-right: 15px;
 }
 
-#write blockquote h2 ~ p code {
+#write blockquote h2 ~ :is(p, ul, blockquote) code {
   background-color: #64dd17;
 }
 
@@ -310,7 +310,7 @@ code {
   vertical-align: baseline;
   border-width: 0;
 }
-#write blockquote h3 ~ p code {
+#write blockquote h3 ~ :is(p, ul, blockquote) code {
   background-color: var(--shadow-color);
 }
 #write blockquote h4 {
@@ -337,7 +337,7 @@ code {
   vertical-align: baseline;
   border-width: 0;
 }
-#write blockquote h4 ~ p code {
+#write blockquote h4 ~ :is(p, ul, blockquote) code {
   background-color: #e3229d;
 }
 #write blockquote h5 {
@@ -363,7 +363,7 @@ code {
   vertical-align: baseline;
   border-width: 0;
 }
-#write blockquote h5 ~ p code {
+#write blockquote h5 ~ :is(p, ul, blockquote) code {
   background-color: #ff9100;
 }
 
@@ -390,7 +390,7 @@ code {
   vertical-align: baseline;
   border-width: 0;
 }
-#write blockquote h6 ~ p code {
+#write blockquote h6 ~ :is(p, ul, blockquote) code {
   background-color: #e04242;
 }
 kbd,
